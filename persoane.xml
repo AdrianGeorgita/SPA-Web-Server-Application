@@ -4,5 +4,12 @@
 <nume>Popescu</nume>
 <prenume>Ion</prenume>
 <varsta>23</varsta>
+<adresa>
+    <strada>Pacurari</strada>
+    <numar>23</numar>
+    <localitate>Iasi</localitate>
+    <judet>Iasi</judet>
+    <tara>Romania</tara>
+</adresa>
 </persoana>
 </persoane>
