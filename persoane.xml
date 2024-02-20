@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <persoane>
-<persoana id="1">
-<nume>Popescu</nume>
-<prenume>Ion</prenume>
-<varsta>23</varsta>
-<adresa>
-    <strada>Pacurari</strada>
-    <numar>23</numar>
-    <localitate>Iasi</localitate>
-    <judet>Iasi</judet>
-    <tara>Romania</tara>
-</adresa>
-</persoana>
+    <persoana id="1">
+        <nume>Popescu</nume>
+        <prenume>Ion</prenume>
+        <varsta>23</varsta>
+        <adresa>
+            <strada>Pacurari</strada>
+            <numar>23</numar>
+            <localitate>Iasi</localitate>
+            <judet>Iasi</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <email>ion-popescu@gmail.com</email>
+        <telefon-mobil>0712345678</telefon-mobil>
+        <ocupatia>Bucatar</ocupatia>
+    </persoana>
+    <persoana id="2">
+        <nume>Ionescu</nume>
+        <prenume>Andrei</prenume>
+        <varsta>43</varsta>
+        <adresa>
+            <strada>Tatarasi</strada>
+            <numar>72</numar>
+            <localitate>Iasi</localitate>
+            <judet>Iasi</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <email>andrei-ionescu@gmail.com</email>
+        <telefon-mobil>0712354768</telefon-mobil>
+        <ocupatia>Taximetrist</ocupatia>
+    </persoana>
+    <persoana id="3">
+        <nume>Popa</nume>
+        <prenume>Ionel</prenume>
+        <varsta>19</varsta>
+        <adresa>
+            <strada>Dacia</strada>
+            <numar>11</numar>
+            <localitate>Iasi</localitate>
+            <judet>Iasi</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <email>ionel-popa@gmail.com</email>
+        <telefon-mobil>0732154786</telefon-mobil>
+        <ocupatia>Livrator</ocupatia>
+    </persoana>
 </persoane>
