@@ -3,13 +3,14 @@
     <head>
         <title>Football</title>
         <meta charset="utf-8">
+        <link href="css/stil.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header>
             <h1>Football <img src="imagini/Football_Logo.png" alt="Football Logo" width="40" height="40"></h1>
         </header>
         <nav>
-            <pre><a href="index.html">Acasă</a>     <a href="inregistreaza.html">Înregistrează</a>     <a href="video.html">Video</a>     <a href="despre.html">Despre</a>     <a href="desen.html">Desen</a></pre>
+            <a href="index.html">Acasă</a>     <a href="inregistreaza.html">Înregistrează</a>     <a href="video.html">Video</a>     <a href="despre.html">Despre</a>     <a href="desen.html">Desen</a>
         </nav>
         <main>
             <h2>About Football</h2>
@@ -66,49 +67,55 @@
                 </tr>
             </table>
             <!-- Tema 2 -->
-            <h3>Create a Team</h3>
-            <form>
-                <label for="teamName">Team Name:</label>
-                <input type="text" id="teamName" placeholder="Your team's name"><br>
-                <label for="teamStadium">Stadium Name:</label>
-                <input type="text" id="teamStadium" placeholder="Your stadium's name"><br>
-                <label for="stadiumCapacity">Stadium Capacity:</label>
-                <input type="number" id="stadiumCapacity" placeholder="0" min="0"><br>
-                <label for="teamLocation">Location:</label>
-                <input type="text" id="teamLocation" placeholder="Your team's location"><br>
-                <label for="teamLeague">Team League:</label>
-                <select id="teamLeague" name="teamLeague">
-                <option value="premierLeague">Premier League</option>
-                <option value="laLiga">LaLiga</option>
-                <option value="bundesliga">Bundesliga</option>
-                <option value="seriaA">Seria A</option>
-                <option value="superliga">Superliga</option>
-                <option value="ligue1">Ligue 1</option>
-                <option value="ereDivisie">Eredivisie</option>
-                <option value="mls">MLS</option>
-                </select><br>
-                <textarea name="teamDescription" rows="5" cols="30">Your team's description
-                </textarea><br>
-                <input type="radio" id="teamAgree" name="teamAgree" value="True">
-                <label for="teamAgree">I agree to to create this team</label><br><br>
-                <input type="submit" value="Create your team">
-            </form>
+            <div class="createTeam">
+                <h3>Create a Team</h3>
+                <form>
+                    <label for="teamName">Team Name:</label>
+                    <input type="text" id="teamName" placeholder="Your team's name"><br>
+                    <label for="teamStadium">Stadium Name:</label>
+                    <input type="text" id="teamStadium" placeholder="Your stadium's name"><br>
+                    <label for="stadiumCapacity">Stadium Capacity:</label>
+                    <input type="number" id="stadiumCapacity" placeholder="0" min="0"><br>
+                    <label for="teamLocation">Location:</label>
+                    <input type="text" id="teamLocation" placeholder="Your team's location"><br>
+                    <label for="teamLeague">Team League:</label>
+                    <select id="teamLeague" name="teamLeague">
+                    <option value="premierLeague">Premier League</option>
+                    <option value="laLiga">LaLiga</option>
+                    <option value="bundesliga">Bundesliga</option>
+                    <option value="seriaA">Seria A</option>
+                    <option value="superliga">Superliga</option>
+                    <option value="ligue1">Ligue 1</option>
+                    <option value="ereDivisie">Eredivisie</option>
+                    <option value="mls">MLS</option>
+                    </select><br>
+                    <textarea name="teamDescription" rows="5" cols="30">Your team's description
+                    </textarea><br>
+                    <div class="radioButton">
+                        <input type="radio" id="teamAgree" name="teamAgree" value="True">
+                        <label for="teamAgree">I agree to to create this team</label><br><br>
+                    </div>
+                    <input type="submit" value="Create your team">
+                </form>
+            </div>
             <!-- Tema 3 -->
-            <h3>Current best 10 leagues in the world:</h3>
-            <ol>
-                <li>Premier League</li>
-                <li>Bundesliga</li>
-                <li>LaLiga</li>
-                <li>Seria A</li>
-                <li>Ligue 1</li>
-                <li>Eredivisie</li>
-                <li>Brasileiro</li>
-                <li>Primeira Liga</li>
-                <li>Liga MX</li>
-                <li>Premier League (Russia)</li>
-            </ol>
-            <h4>Global Football Rankings</h4>
-            <iframe src="https://www.globalfootballrankings.com/" title="Global Football Rankings" width="600" height="400"></iframe> 
+            <div class="bestTeams">
+                <h3>Current best 10 leagues in the world:</h3>
+                <ol>
+                    <li>Premier League</li>
+                    <li>Bundesliga</li>
+                    <li>LaLiga</li>
+                    <li>Seria A</li>
+                    <li>Ligue 1</li>
+                    <li>Eredivisie</li>
+                    <li>Brasileiro</li>
+                    <li>Primeira Liga</li>
+                    <li>Liga MX</li>
+                    <li>Premier League (Russia)</li>
+                </ol>
+                <h4>Global Football Rankings</h4>
+                <iframe src="https://www.globalfootballrankings.com/" title="Global Football Rankings" width="600" height="400"></iframe> 
+            </div>
         </main>
         <footer>
             <p>&copy; 2024 Football</p>
