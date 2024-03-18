@@ -7,7 +7,10 @@
     </head>
     <body>
         <header>
-            <h1>Football <img src="imagini/Football_Logo.png" alt="Football Logo" width="40" height="40"></h1>
+            <div>
+                <img src="imagini/Football_Ball.png" alt="Minge de fotbal" width="75" height="75">
+                <h1>Football <img src="imagini/Football_Logo.png" alt="Football Logo" width="40" height="40"></h1>
+            </div>
         </header>
         <nav>
             <a href="index.html">Acasă</a>     <a href="inregistreaza.html">Înregistrează</a>     <a href="video.html">Video</a>     <a href="despre.html">Despre</a>     <a href="desen.html">Desen</a>
@@ -34,87 +37,95 @@
                 Depending on the format of the competition, an equal number of goals scored may result in a draw being declared, 
                 or the game goes into extra time or a penalty shoot-out.
             </p>
-            <p><img src="imagini/FIFA_Logo.png" alt="FIFA Logo" width="100"> Internationally, association football is governed by <a href="https://en.wikipedia.org/wiki/FIFA"><b>FIFA</b></a></p>
-            <h4>Under FIFA, there are six continental confederations:</h4>
-            <table>
-                <tr>
-                    <th>Abbreviation</th>
-                    <th>Full Name</th>
-                </tr>
-                <tr>
-                    <td>AFC</td>
-                    <td>The Asian Football Confederation</td>
-                </tr>
-                <tr>
-                    <td>CAF</td>
-                    <td>The Confederation of African Football</td>
-                </tr>
-                <tr>
-                    <td>CONCACAF</td>
-                    <td>The Confederation of North, Central America and Caribbean Association Football</td>
-                </tr>
-                <tr>
-                    <td>CONMEBOL</td>
-                    <td>The South American Football Confederation</td>
-                </tr>
-                <tr>
-                    <td>OFC</td>
-                    <td>The Oceania Football Confederation</td>
-                </tr>
-                <tr>
-                    <td>UEFA</td>
-                    <td>The Union of European Football Associations</td>
-                </tr>
-            </table>
-            <!-- Tema 2 -->
-            <div class="createTeam">
-                <h3>Create a Team</h3>
-                <form>
-                    <label for="teamName">Team Name:</label>
-                    <input type="text" id="teamName" placeholder="Your team's name"><br>
-                    <label for="teamStadium">Stadium Name:</label>
-                    <input type="text" id="teamStadium" placeholder="Your stadium's name"><br>
-                    <label for="stadiumCapacity">Stadium Capacity:</label>
-                    <input type="number" id="stadiumCapacity" placeholder="0" min="0"><br>
-                    <label for="teamLocation">Location:</label>
-                    <input type="text" id="teamLocation" placeholder="Your team's location"><br>
-                    <label for="teamLeague">Team League:</label>
-                    <select id="teamLeague" name="teamLeague">
-                    <option value="premierLeague">Premier League</option>
-                    <option value="laLiga">LaLiga</option>
-                    <option value="bundesliga">Bundesliga</option>
-                    <option value="seriaA">Seria A</option>
-                    <option value="superliga">Superliga</option>
-                    <option value="ligue1">Ligue 1</option>
-                    <option value="ereDivisie">Eredivisie</option>
-                    <option value="mls">MLS</option>
-                    </select><br>
-                    <textarea name="teamDescription" rows="5" cols="30">Your team's description
-                    </textarea><br>
-                    <div class="radioButton">
-                        <input type="radio" id="teamAgree" name="teamAgree" value="True">
-                        <label for="teamAgree">I agree to to create this team</label><br><br>
-                    </div>
-                    <input type="submit" value="Create your team">
-                </form>
+            <div class="container">
+                <div class="aboutFifa">
+                    <p><img src="imagini/FIFA_Logo.png" alt="FIFA Logo" width="100"> Internationally, association football is governed by <a href="https://en.wikipedia.org/wiki/FIFA"><b>FIFA</b></a></p>
+                    <h4>Under FIFA, there are six continental confederations:</h4>
+                    <table>
+                        <tr>
+                            <th>Abbreviation</th>
+                            <th>Full Name</th>
+                        </tr>
+                        <tr>
+                            <td>AFC</td>
+                            <td>The Asian Football Confederation</td>
+                        </tr>
+                        <tr>
+                            <td>CAF</td>
+                            <td>The Confederation of African Football</td>
+                        </tr>
+                        <tr>
+                            <td>CONCACAF</td>
+                            <td>The Confederation of North, Central America and Caribbean Association Football</td>
+                        </tr>
+                        <tr>
+                            <td>CONMEBOL</td>
+                            <td>The South American Football Confederation</td>
+                        </tr>
+                        <tr>
+                            <td>OFC</td>
+                            <td>The Oceania Football Confederation</td>
+                        </tr>
+                        <tr>
+                            <td>UEFA</td>
+                            <td>The Union of European Football Associations</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Tema 2 -->
+                <div class="createTeam">
+                    <h3>Create a Team</h3>
+                    <form>
+                        <label for="teamName">Team Name:</label>
+                        <input type="text" id="teamName" placeholder="Your team's name"><br>
+                        <label for="teamStadium">Stadium Name:</label>
+                        <input type="text" id="teamStadium" placeholder="Your stadium's name"><br>
+                        <label for="stadiumCapacity">Stadium Capacity:</label>
+                        <input type="number" id="stadiumCapacity" placeholder="0" min="0"><br>
+                        <label for="teamLocation">Location:</label>
+                        <input type="text" id="teamLocation" placeholder="Your team's location"><br>
+                        <label for="teamLeague">Team League:</label>
+                        <select id="teamLeague" name="teamLeague">
+                        <option value="premierLeague">Premier League</option>
+                        <option value="laLiga">LaLiga</option>
+                        <option value="bundesliga">Bundesliga</option>
+                        <option value="seriaA">Seria A</option>
+                        <option value="superliga">Superliga</option>
+                        <option value="ligue1">Ligue 1</option>
+                        <option value="ereDivisie">Eredivisie</option>
+                        <option value="mls">MLS</option>
+                        </select><br>
+                        <textarea name="teamDescription" rows="5" cols="30">Your team's description
+                        </textarea><br>
+                        <div class="radioButton">
+                            <input type="radio" id="teamAgree" name="teamAgree" value="True">
+                            <label for="teamAgree">I agree to to create this team</label><br><br>
+                        </div>
+                        <input type="submit" value="Create your team">
+                    </form>
+                </div>
             </div>
             <!-- Tema 3 -->
             <div class="bestTeams">
-                <h3>Current best 10 leagues in the world:</h3>
-                <ol>
-                    <li>Premier League</li>
-                    <li>Bundesliga</li>
-                    <li>LaLiga</li>
-                    <li>Seria A</li>
-                    <li>Ligue 1</li>
-                    <li>Eredivisie</li>
-                    <li>Brasileiro</li>
-                    <li>Primeira Liga</li>
-                    <li>Liga MX</li>
-                    <li>Premier League (Russia)</li>
-                </ol>
-                <h4>Global Football Rankings</h4>
-                <iframe src="https://www.globalfootballrankings.com/" title="Global Football Rankings" width="600" height="400"></iframe> 
+                <div>
+                    <h3>Current best 10 leagues in the world:</h3>
+                    <ol>
+                        <li>Premier League</li>
+                        <li>Bundesliga</li>
+                        <li>LaLiga</li>
+                        <li>Seria A</li>
+                        <li>Ligue 1</li>
+                        <li>Eredivisie</li>
+                        <li>Brasileiro</li>
+                        <li>Primeira Liga</li>
+                        <li>Liga MX</li>
+                        <li>Premier League (Russia)</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Global Football Rankings</h3>
+                    <iframe src="https://www.globalfootballrankings.com/" title="Global Football Rankings" width="600" height="400"></iframe> 
+                </div>
             </div>
         </main>
         <footer>
