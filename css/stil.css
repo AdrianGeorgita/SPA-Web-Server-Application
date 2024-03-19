@@ -55,6 +55,10 @@ body{
     flex-direction: column;
 }
 
+.mainContainer{
+    /* Will return here */
+}
+
 main{
     margin-left: 6px;
     background-color: #388E3C;

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Football</title>
+        <meta charset="utf-8">
+        <link href="css/stil.css" rel="stylesheet" type="text/css">
+        <script src="js/script.js" type="text/javascript"></script>
+    </head>
+    <body onload="initializeInvat()">
+        <header>
+            <div>
+                <img src="imagini/Football_Ball.png" alt="Minge de fotbal" width="75" height="75">
+                <h1>Football <img src="imagini/Football_Logo.png" alt="Football Logo" width="40" height="40"></h1>
+            </div>
+        </header>
+        <nav>
+            <a href="index.html">Acasă</a>     <a href="inregistreaza.html">Înregistrează</a>     <a href="video.html">Video</a>     <a href="despre.html">Despre</a>     <a href="desen.html">Desen</a>     <a href="invat.html">Învăț</a>
+        </nav>
+        <div class="mainContainer">
+            <aside>
+                <div class="asideContainer">
+                    <a href="#Section1">Informații</a>
+                    <a href="#Section2">Desenare</a>
+                    <a href="#Section3">Tabel</a>
+                </div>
+            </aside>
+            <main>
+                <h2>Învăț</h2>
+                <section id="Section1">
+                    <h3>Informații</h3>
+                    <p>Data și timpul curent: <span id="myDate"></span> </p>
+                    <p>Adresa URL este: <span id="myURL"></span> </p>
+                    <p>Locația curentă: <span id="myLocation"></span> </p>
+                    <p>Numele și versiunea browser-ului: <span id="myBrowserCode"></span> <span id="myBrowserName"></span> <span id="myBrowserVersion"></span></p>
+                    <p>Sistemul de operare folosit: <span id="myOS"></span> </p>
+                </section>
+                <section id="Section2">
+                    <h3>Desenare</h3>
+                    <label for="canvasFillColor">Culoarea de umplere: </label>
+                    <input type="color" id="canvasFillColor" name="canvasFillColor" value="#ff0000">
+                    <label for="canvasStrokeColor">Culoarea de contur: </label>
+                    <input type="color" id="canvasStrokeColor" name="canvasStrokeColor" value="#ff0000"><br>
+                    <canvas id="myCanvas" width="500" height="200" style="border:2px solid black"></canvas>
+                </section>
+                <section id="Section3">
+                    <h3>Tabel</h3>
+                    <label for="tablePosition">Poziția unde se inserează: </label>
+                    <input type="text" id="tablePosition" name="tablePosition" value="1">
+                    <label for="tableBackgroundColor">Culoarea de umplere: </label>
+                    <input type="color" id="tableBackgroundColor" name="tableBackgroundColor" value="#ff0000">  
+                    <input type="submit" id="tableInsertRow" value="Inserează o linie" onclick="addTableRow()">
+                    <input type="submit" id="tableInsertColumn" value="Inserează o coloană" onclick="addTableColumn()">
+
+                    <h4>Ultimii 10 câștigători ai ligii campionilor:</h4>
+                    <table id="invatTable" width="800">
+                        <tbody id="invatTableBody">
+                            <tr>
+                                <th>Anul</th>
+                                <th>Echipa</th>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>Manchester City</td>
+                            </tr>
+                            <tr>
+                                <td>2021</td>
+                                <td>Real Madrid</td>
+                            </tr>
+                            <tr>
+                                <td>2020</td>
+                                <td>Chelsea</td>
+                            </tr>
+                            <tr>
+                                <td>2019</td>
+                                <td>Bayern Munich</td>
+                            </tr>
+                            <tr>
+                                <td>2018</td>
+                                <td>Liverpool</td>
+                            </tr>
+                            <tr>
+                                <td>2017</td>
+                                <td>Real Madrid</td>
+                            </tr>
+                            <tr>
+                                <td>2016</td>
+                                <td>Real Madrid</td>
+                            </tr>
+                            <tr>
+                                <td>2015</td>
+                                <td>Real Madrid</td>
+                            </tr>
+                            <tr>
+                                <td>2014</td>
+                                <td>Barcelona</td>
+                            </tr>
+                            <tr>
+                                <td>2013</td>
+                                <td>Real Madrid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
+        <footer>
+            <p>&copy; 2024 Football</p>
+        </footer>
+    </body>
+</html>
