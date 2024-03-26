@@ -1,1 +1,1 @@
-C:\Users\georg\AppData\Local\Microsoft\WindowsApps\python.exe server_web.py
+C:\Users\georg\AppData\Local\Microsoft\WindowsApps\python3.exe server_web.py

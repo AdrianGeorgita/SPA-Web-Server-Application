@@ -26,6 +26,11 @@ while True:
             break
     print('S-a terminat cititrea.')
     # TODO interpretarea sirului de caractere `linieDeStart` pentru a extrage numele resursei cerute
+    numeResursa = linieDeStart.split()[1]
+    print(numeResursa)
+    continut = "Hello World! - "+numeResursa
+    raspuns = "HTTP/1.1 200 OK\r\nContent-Length: 27\r\nContent-Type: text/plain;charset=utf-8\r\nServer: MyFootballServer\r\n\r\n"+continut
     # TODO trimiterea răspunsului HTTP
+    clientsocket.sendall(raspuns.encode("utf-8"))
     clientsocket.close()
     print('S-a terminat comunicarea cu clientul.')
