@@ -1,0 +1,1 @@
+C:\Users\georg\AppData\Local\Microsoft\WindowsApps\python.exe server_web.py
