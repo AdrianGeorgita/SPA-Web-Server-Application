@@ -4,8 +4,19 @@
         <title>Football</title>
         <meta charset="utf-8">
         <link href="css/stil.css" rel="stylesheet" type="text/css">
+        <script>
+            function schimbaContinut(resursa){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("continut").innerHTML = this.responseText;
+                };
+                xhttp.open("GET", resursa + ".html", true);
+                xhttp.send();
+            }
+        </script>
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body onload="schimbaContinut('acasa')">
         <header>
             <div>
                 <img src="imagini/Football_Ball.png" alt="Minge de fotbal" width="75" height="75">
@@ -13,30 +24,10 @@
             </div>
         </header>
         <nav>
-            <a href="index.html">Acasă</a>     <a href="inregistreaza.html">Înregistrează</a>     <a href="video.html">Video</a>     <a href="despre.html">Despre</a>     <a href="desen.html">Desen</a>     <a href="invat.html">Învăț</a>
+            <a onclick="schimbaContinut('acasa')">Acasă</a>     <a onclick="schimbaContinut('inregistreaza')">Înregistrează</a>     <a onclick="schimbaContinut('video')">Video</a>     <a onclick="schimbaContinut('despre')">Despre</a>     <a onclick="schimbaContinut('desen')">Desen</a>     <a onclick="schimbaContinut('invat')">Învăț</a>
         </nav>
-        <main>
-            <h2>Acasă</h2>
-            <section>
-                <h3>Secțiunea Acasă</h3>
-                <p>Conține informații cu privire la celelalte secțiuni de pe site.</p>
-            </section>
-            <section>
-                <h3>Secțiunea Înregistrează</h3>
-                <p>Îți permite să te înregistrezi pe site folosind atât informații generale cât și informații personale despre tine.</p>
-            </section>
-            <section>
-                <h3>Secțiunea Video</h3>
-                <p>Conține diverse videoclipuri care au legătură cu fotbalul.</p>
-            </section>
-            <section>
-                <h3>Secțiunea Despre</h3>
-                <p>Conține informații despre fotbal.</p>
-            </section>
-            <section>
-                <h3>Secțiunea Desen</h3>
-                <p>Conține un desen care are legătură cu fotbalul.</p>
-            </section>
+        <main id="continut">
+            
         </main>
         <footer>
             <p>&copy; 2024 Football</p>
