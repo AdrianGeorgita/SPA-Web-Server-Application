@@ -5,16 +5,30 @@
         <meta charset="utf-8">
         <link href="css/stil.css" rel="stylesheet" type="text/css">
         <script>
-            function schimbaContinut(resursa){
+            function schimbaContinut(resursa, jsFisier, jsFunctie){
                 var xhttp = new XMLHttpRequest();
                 xhttp.onload = function() {
                     document.getElementById("continut").innerHTML = this.responseText;
+                    if (jsFisier) {
+                        var elementScript = document.createElement('script');
+                        elementScript.onload = function () {
+                            console.log("hello");
+                            if (jsFunctie) {
+                                window[jsFunctie]();
+                            }
+                        };
+                    elementScript.src = jsFisier;
+                    document.head.appendChild(elementScript);
+                    } else {
+                        if (jsFunctie) {
+                            window[jsFunctie]();
+                        }
+                    }
                 };
                 xhttp.open("GET", resursa + ".html", true);
                 xhttp.send();
             }
         </script>
-        <script src="js/script.js" type="text/javascript"></script>
     </head>
     <body onload="schimbaContinut('acasa')">
         <header>
@@ -24,7 +38,13 @@
             </div>
         </header>
         <nav>
-            <a onclick="schimbaContinut('acasa')">Acasă</a>     <a onclick="schimbaContinut('inregistreaza')">Înregistrează</a>     <a onclick="schimbaContinut('video')">Video</a>     <a onclick="schimbaContinut('despre')">Despre</a>     <a onclick="schimbaContinut('desen')">Desen</a>     <a onclick="schimbaContinut('invat')">Învăț</a>
+            <a onclick="schimbaContinut('acasa')">Acasă</a>
+            <a onclick="schimbaContinut('inregistreaza')">Înregistrează</a>
+            <a onclick="schimbaContinut('video')">Video</a>
+            <a onclick="schimbaContinut('despre')">Despre</a>
+            <a onclick="schimbaContinut('desen')">Desen</a>
+            <a onclick="schimbaContinut('invat','js/script.js','initializeInvat')">Învăț</a>
+            <a onclick="schimbaContinut('persoane','js/persoane.js','incarcaPersoane')">Persoane</a>
         </nav>
         <main id="continut">
             

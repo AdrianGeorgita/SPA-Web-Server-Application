@@ -208,3 +208,8 @@ iframe{
 .videoGallery>div{
     margin-left: 20px;
 }
+
+.invatTable{
+    display: flex;
+    justify-content: center;
+}
