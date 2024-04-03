@@ -171,7 +171,7 @@ textarea{
     width: 300px;
 }
 
-input[type=submit]{
+input[type=submit],input[type=button]{
     background-color: #212121;
     color: #FFFFFF;
     padding: 10px 50px;
@@ -181,7 +181,7 @@ input[type=submit]{
     transition: background-color 0.5s, color 0.5s;
 }
 
-input[type=submit]:hover{
+input[type=submit],input[type=button]:hover{
     background-color: #1B5E20;
     color: #000000;
 }
@@ -209,7 +209,7 @@ iframe{
     margin-left: 20px;
 }
 
-.invatTable{
+.invatTable,.checkAccountForm{
     display: flex;
     justify-content: center;
 }

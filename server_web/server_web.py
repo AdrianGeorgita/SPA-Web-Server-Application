@@ -1,5 +1,6 @@
 import socket
 import os # pentru dimensiunea fisierului
+import json
 
 # creeaza un server socket
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -40,43 +41,78 @@ while True:
 	numeResursaCeruta = elementeLineDeStart[1]
 	if numeResursaCeruta == '/':
 		numeResursaCeruta = '/index.html'
-	
+
 	# calea este relativa la directorul de unde a fost executat scriptul
 	numeFisier = '../continut' + numeResursaCeruta
 	
 	fisier = None
 	try:
-		# deschide fisierul pentru citire in mod binar
-		fisier = open(numeFisier,'rb')
+		print(elementeLineDeStart[1])
+		if not (elementeLineDeStart[1] == "/api/utilizatori"):
+			# deschide fisierul pentru citire in mod binar
+			fisier = open(numeFisier,'rb')
 
-		# tip media
-		numeExtensie = numeFisier[numeFisier.rfind('.')+1:]
-		tipuriMedia = {
-			'html': 'text/html; charset=utf-8',
-			'css': 'text/css; charset=utf-',
-			'js': 'text/javascript; charset=utf-8',
-			'png': 'image/png',
-			'jpg': 'image/jpeg',
-			'jpeg': 'image/jpeg',
-			'gif': 'image/gif', 
-			'ico': 'image/x-icon',
-			'xml': 'application/xml; charset=utf-8',
-			'json': 'application/json; charset=utf-8'
-		}
-		tipMedia = tipuriMedia.get(numeExtensie,'text/plain; charset=utf-8')
-		
-		# se trimite raspunsul
-		clientsocket.sendall(b'HTTP/1.1 200 OK\r\n')
-		clientsocket.sendall(('Content-Length: ' + str(os.stat(numeFisier).st_size) + '\r\n').encode())
-		clientsocket.sendall(('Content-Type: ' + str(tipMedia) +'\r\n').encode())
-		clientsocket.sendall(b'Server: My PW Server\r\n')
-		clientsocket.sendall(b'\r\n')
-		
-		# citeste din fisier si trimite la server
-		buf = fisier.read(1024)
-		while (buf):
-			clientsocket.send(buf)
+			# tip media
+			numeExtensie = numeFisier[numeFisier.rfind('.')+1:]
+			tipuriMedia = {
+				'html': 'text/html; charset=utf-8',
+				'css': 'text/css; charset=utf-',
+				'js': 'text/javascript; charset=utf-8',
+				'png': 'image/png',
+				'jpg': 'image/jpeg',
+				'jpeg': 'image/jpeg',
+				'gif': 'image/gif', 
+				'ico': 'image/x-icon',
+				'xml': 'application/xml; charset=utf-8',
+				'json': 'application/json; charset=utf-8'
+			}
+			tipMedia = tipuriMedia.get(numeExtensie,'text/plain; charset=utf-8')
+			
+			# se trimite raspunsul
+			clientsocket.sendall(b'HTTP/1.1 200 OK\r\n')
+			clientsocket.sendall(('Content-Length: ' + str(os.stat(numeFisier).st_size) + '\r\n').encode())
+			clientsocket.sendall(('Content-Type: ' + str(tipMedia) +'\r\n').encode())
+			clientsocket.sendall(b'Server: My PW Server\r\n')
+			clientsocket.sendall(b'\r\n')
+			
+			# citeste din fisier si trimite la server
 			buf = fisier.read(1024)
+			while (buf):
+				clientsocket.send(buf)
+				buf = fisier.read(1024)
+		else:
+			if elementeLineDeStart[0] == "POST":
+				lungime_corp = cerere.find('Content-Length: ') + len('Content-Length: ')
+				pozitie_finala = cerere.find('\r\n', lungime_corp)
+				lungime_date = int(cerere[lungime_corp:pozitie_finala])
+				corp = cerere[cerere.find('\r\n\r\n') + 4:]
+
+				data = json.loads(corp)
+
+				utilizator = data.get('utilizator')
+				parola = data.get('parola')
+
+				if utilizator and parola:
+
+					try:
+						with open('../continut/resurse/utilizatori.json','r') as file:
+							existingData = json.load(file)
+					except FileNotFoundError:
+						existingData = []
+
+					existingData.append(data)
+
+					with open('../continut/resurse/utilizatori.json','w') as file:
+						json.dump(existingData,file)
+					raspuns = 'HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n'
+				else:
+					raspuns = 'HTTP/1/1 400 Bad Request\r\nContent-Length: 0\r\n'
+			else:
+				raspuns = 'HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n'
+
+			clientsocket.sendall(raspuns.encode())
+			
+
 	except IOError:
 		# daca fisierul nu exista trebuie trimis un mesaj de 404 Not Found
 		msg = 'Eroare! Resursa ceruta ' + numeResursaCeruta + ' nu a putut fi gasita!'

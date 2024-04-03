@@ -44,3 +44,48 @@ function incarcaPersoane(){
     xhttp.open("GET", "resurse/persoane.xml", true);
     xhttp.send();
 }
+
+function checkAccount(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        var continut = this.responseText;;
+        
+        var utilizator = document.getElementById("checkAccountUser").value;
+        var parola = document.getElementById("checkAccountPassword").value;
+
+        const obj = JSON.parse(continut);
+        var isValid = false;
+
+        isValid = obj.some(cont => cont.utilizator == utilizator && cont.parola == parola);
+
+        if(isValid)
+            document.getElementById("checkAccountLabel").innerHTML = "Datele sunt valide!";
+        else
+            document.getElementById("checkAccountLabel").innerHTML = "Datele sunt invalide!";
+    }
+    xhttp.open("GET", "resurse/utilizatori.json", true);
+    xhttp.send();
+}
+
+
+function registerAccount(){
+    var utilizator = document.getElementById("numeUtilizator").value;
+    var parola = document.getElementById("parola").value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if(xttp.readyState == 4 && xttp.status == 200){
+            var continut = xttp.responseText;
+        }
+    }
+
+    var url = "api/utilizatori"
+
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-Type","application/json");
+
+    var data = JSON.stringify({"utilizator": utilizator, "parola": parola});
+
+    xhttp.send(data);
+}
+
