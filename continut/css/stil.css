@@ -209,7 +209,12 @@ iframe{
     margin-left: 20px;
 }
 
-.invatTable,.checkAccountForm{
+.invatTable,.checkAccountForm, .purchasesBody{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+.purchasesForm{
+    display: inline-flex;
 }
