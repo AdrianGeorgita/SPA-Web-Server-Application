@@ -2,6 +2,7 @@ import socket
 import os # pentru dimensiunea fisierului
 import json
 import threading
+import gzip
 
 
 # creeaza un server socket
@@ -12,7 +13,7 @@ serversocket.bind(('', 5678))
 serversocket.listen(5)
 
 def handleClient(clientsocket, address):
-	print('S-a conectat un client.')
+	print('S-a conectat un client cu adresa: '+str(address))
 	# se proceseaza cererea si se citeste prima linie de text
 	cerere = ''
 	linieDeStart = ''
@@ -65,18 +66,24 @@ def handleClient(clientsocket, address):
 			}
 			tipMedia = tipuriMedia.get(numeExtensie,'text/plain; charset=utf-8')
 			
+			compressedContent = gzip.compress(fisier.read())
+
 			# se trimite raspunsul
 			clientsocket.sendall(b'HTTP/1.1 200 OK\r\n')
-			clientsocket.sendall(('Content-Length: ' + str(os.stat(numeFisier).st_size) + '\r\n').encode())
+			clientsocket.sendall(('Content-Length: ' + str(len(compressedContent)) + '\r\n').encode())
 			clientsocket.sendall(('Content-Type: ' + str(tipMedia) +'\r\n').encode())
+			clientsocket.sendall(b'Content-Encoding: gzip\r\n')
 			clientsocket.sendall(b'Server: My PW Server\r\n')
 			clientsocket.sendall(b'\r\n')
 			
-			# citeste din fisier si trimite la server
-			buf = fisier.read(1024)
-			while (buf):
-				clientsocket.send(buf)
-				buf = fisier.read(1024)
+			# trimite la server bucati din continutul compresat
+			bytesSent = 0
+			while bytesSent < len(compressedContent):
+				# determinam indexul de sfarsit al continutului actual fara sa depasim lungimea continutului
+				index = min(bytesSent+1024, len(compressedContent))
+				content = compressedContent[bytesSent:index]
+				clientsocket.sendall(content)
+				bytesSent += len(content)
 		else:
 			if elementeLineDeStart[0] == "POST":
 				lungime_corp = cerere.find('Content-Length: ') + len('Content-Length: ')
