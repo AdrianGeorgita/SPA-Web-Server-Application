@@ -1,6 +1,8 @@
 import socket
 import os # pentru dimensiunea fisierului
 import json
+import threading
+
 
 # creeaza un server socket
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -9,12 +11,7 @@ serversocket.bind(('', 5678))
 # serverul poate accepta conexiuni; specifica cati clienti pot astepta la coada
 serversocket.listen(5)
 
-while True:
-	print('#########################################################################')
-	print('Serverul asculta potentiali clienti.')
-	# asteapta conectarea unui client la server
-	# metoda `accept` este blocanta => clientsocket, care reprezinta socket-ul corespunzator clientului conectat
-	(clientsocket, address) = serversocket.accept()
+def handleClient(clientsocket, address):
 	print('S-a conectat un client.')
 	# se proceseaza cererea si se citeste prima linie de text
 	cerere = ''
@@ -34,7 +31,7 @@ while True:
 	if linieDeStart == '':
 		clientsocket.close()
 		print('S-a terminat comunicarea cu clientul - nu s-a primit niciun mesaj.')
-		continue
+		return
 	# interpretarea sirului de caractere `linieDeStart`
 	elementeLineDeStart = linieDeStart.split()
 	# TODO securizare
@@ -116,7 +113,7 @@ while True:
 	except IOError:
 		# daca fisierul nu exista trebuie trimis un mesaj de 404 Not Found
 		msg = 'Eroare! Resursa ceruta ' + numeResursaCeruta + ' nu a putut fi gasita!'
-		print(msg)
+		# print(msg)
 		clientsocket.sendall(b'HTTP/1.1 404 Not Found\r\n')
 		clientsocket.sendall(('Content-Length: ' + str(len(msg.encode('utf-8'))) + '\r\n').encode())
 		clientsocket.sendall(b'Content-Type: text/plain; charset=utf-8\r\n')
@@ -129,3 +126,13 @@ while True:
 			fisier.close()
 	clientsocket.close()
 	print('S-a terminat comunicarea cu clientul.')
+
+while True:
+	print('#########################################################################')
+	print('Serverul asculta potentiali clienti.')
+	# asteapta conectarea unui client la server
+	# metoda `accept` este blocanta => clientsocket, care reprezinta socket-ul corespunzator clientului conectat
+	(clientsocket, address) = serversocket.accept()
+	
+	thread = threading.Thread(target=handleClient, args=(clientsocket, address))
+	thread.start()

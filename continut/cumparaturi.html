@@ -7,6 +7,10 @@
             <label for="purchaseQuantity">Cantitate:</label>
             <input type="number" id="purchaseQuantity"><br>
             <input type="button" value="Adaugă" onclick="purchaseProduct(); return false;">
+            <select id="purchaseOption" name="purchaseOption">
+                <option value="localStorage">Local Storage</option>
+                <option value="indexedDB">Indexed Database</option>
+            </select><br>
         </form>
     </div>
     <table id="purchasesTable">
