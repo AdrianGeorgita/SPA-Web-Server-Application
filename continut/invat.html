@@ -18,58 +18,113 @@
 <section id="Section3">
     <h3>Tabel</h3>
     <label for="tablePosition">Poziția unde se inserează: </label>
-    <input type="text" id="tablePosition" name="tablePosition" value="1">
+    <input type="number" id="tablePosition" name="tablePosition" value="5">
     <label for="tableBackgroundColor">Culoarea de umplere: </label>
     <input type="color" id="tableBackgroundColor" name="tableBackgroundColor" value="#ff0000">  
     <input type="submit" id="tableInsertRow" value="Inserează o linie" onclick="addTableRow()">
     <input type="submit" id="tableInsertColumn" value="Inserează o coloană" onclick="addTableColumn()">
 
-    <h4>Ultimii 10 câștigători ai ligii campionilor:</h4>
+    <h4>Ultimele 10 finale ale ligii campionilor:</h4>
     <table id="invatTable" width="800">
         <tbody id="invatTableBody">
             <tr>
                 <th>Anul</th>
-                <th>Echipa</th>
+                <th>Campioana</th>
+                <th>Manager</th>
+                <th>Echipa Finalistă</th>
+                <th>Manager</th>
+                <th>Locația</th>
+                <th>Jucătorul cel mai bun</th>
+            </tr>
+            <tr>
+                <td>2023</td>
+                <td>Manchester City</td>
+                <td>Pep Guardiola</td>
+                <td>Inter Milan</td>
+                <td>Simone Inzaghi</td>
+                <td>Istambul, Turcia</td>
+                <td>Rodri</td>
             </tr>
             <tr>
                 <td>2022</td>
-                <td>Manchester City</td>
+                <td>Real Madrid</td>
+                <td>Carlo Ancelotti</td>
+                <td>Liverpool</td>
+                <td>Jürgen Klopp</td>
+                <td>Saint-Denis, Franța</td>
+                <td>Karim Benzema</td>
             </tr>
             <tr>
                 <td>2021</td>
-                <td>Real Madrid</td>
+                <td>Chelsea</td>
+                <td>Thomas Tuchel</td>
+                <td>Manchester City</td>
+                <td>Pep Guardiola</td>
+                <td>Istanbul, Turcia</td>
+                <td>N'Golo Kanté</td>
             </tr>
             <tr>
                 <td>2020</td>
-                <td>Chelsea</td>
+                <td>Bayern Munich</td>
+                <td>Hans-Dieter Flick</td>
+                <td>Paris Saint-Germain</td>
+                <td>Thomas Tuchel</td>
+                <td>Estádio da Luz, Lisabona</td>
+                <td>Manuel Neuer</td>
             </tr>
             <tr>
                 <td>2019</td>
-                <td>Bayern Munich</td>
+                <td>Liverpool</td>
+                <td>Jürgen Klopp</td>
+                <td>Tottenham Hotspur</td>
+                <td>Mauricio Pochettino</td>
+                <td>Wanda Metropolitano, Madrid</td>
+                <td>Virgil van Dijk</td>
             </tr>
             <tr>
                 <td>2018</td>
+                <td>Real Madrid</td>
+                <td>Zinedine Zidane</td>
                 <td>Liverpool</td>
+                <td>Jürgen Klopp</td>
+                <td>NSC Olimpiyskiy, Kiev</td>
+                <td>Luka Modrić</td>
             </tr>
             <tr>
                 <td>2017</td>
                 <td>Real Madrid</td>
+                <td>Zinedine Zidane</td>
+                <td>Juventus</td>
+                <td>Massimiliano Allegri</td>
+                <td>Millennium Stadium, Cardiff</td>
+                <td>Cristiano Ronaldo</td>
             </tr>
             <tr>
                 <td>2016</td>
                 <td>Real Madrid</td>
+                <td>Zinedine Zidane</td>
+                <td>Atletico Madrid</td>
+                <td>Diego Simeone</td>
+                <td>Stadio San Siro, Milano</td>
+                <td>Cristiano Ronaldo</td>
             </tr>
             <tr>
                 <td>2015</td>
-                <td>Real Madrid</td>
+                <td>Barcelona</td>
+                <td>Luis Enrique</td>
+                <td>Juventus</td>
+                <td>Massimiliano Allegri</td>
+                <td>Olympiastadion, Berlin</td>
+                <td>Lionel Messi</td>
             </tr>
             <tr>
                 <td>2014</td>
-                <td>Barcelona</td>
-            </tr>
-            <tr>
-                <td>2013</td>
                 <td>Real Madrid</td>
+                <td>Carlo Ancelotti</td>
+                <td>Atletico Madrid</td>
+                <td>Diego Simeone</td>
+                <td>Estadio da Luz, Lisabona</td>
+                <td>Cristiano Ronaldo</td>
             </tr>
         </tbody>
     </table>

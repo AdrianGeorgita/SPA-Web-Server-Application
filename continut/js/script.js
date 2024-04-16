@@ -91,24 +91,55 @@ function addTableRow(){
     let pos = document.getElementById("tablePosition").value;
     let color = document.getElementById("tableBackgroundColor").value;
 
-    const newRow = document.createElement("tr");
+    let table = document.getElementById("invatTable");
 
-    let cell = document.createElement("td");
-    let cellText = document.createTextNode("-");
-    cell.appendChild(cellText);
-    newRow.appendChild(cell);
+    if(!isNaN(pos) && pos > 0){
 
-    cell = document.createElement("td");
-    cellText = document.createTextNode("-");
-    cell.appendChild(cellText);
-    newRow.appendChild(cell);
+        //pos = parseInt(pos);
 
-    const elem = document.getElementById("invatTableBody");
-    elem.appendChild(newRow);
+        // Daca pozitia depaseste dimensiunea tabelei, aceasta devine noua pozitie
+        pos = Math.min(pos,table.rows.length);
+
+        let newRow = table.insertRow(pos);
+
+        for (let i = 0; i < table.rows[0].cells.length; i++) {
+            let cell = document.createElement("td");
+            let cellText = document.createTextNode("-");
+            cell.style.color = "rgba(0,0,0,0)";
+            cell.style.backgroundColor = color;
+            cell.style.height = "5px";
+            cell.appendChild(cellText);
+            newRow.appendChild(cell);
+        }
+    }
+    else{
+        alert("Pozitia trebuie sa fie un numar valid!");
+    }
 }
 
 function addTableColumn(){
     let pos = document.getElementById("tablePosition").value;
     let color = document.getElementById("tableBackgroundColor").value;
 
+    let table = document.getElementById("invatTable");
+
+    if(!isNaN(pos) && pos >= 0){
+        //pos = parseInt(pos);
+
+        // Daca pozitia depaseste dimensiunea tabelei, aceasta devine noua pozitie
+        pos = Math.min(pos,table.rows[0].cells.length);
+
+        for (let i = 0; i < table.rows.length; i++) {
+            let newCell = table.rows[i].insertCell(pos);
+        
+            let cellText = document.createTextNode("-");
+            newCell.style.color = "rgba(0,0,0,0)";
+            newCell.style.backgroundColor = color;
+            newCell.style.width = "5px";
+            newCell.appendChild(cellText);
+        }
+    }
+    else{
+        alert("Pozitia trebuie sa fie un numar valid!");
+    }
 }
