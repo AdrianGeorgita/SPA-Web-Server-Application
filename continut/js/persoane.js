@@ -7,6 +7,10 @@ function incarcaPersoane(){
 
         var persoane = xmlDoc.querySelectorAll("persoana");
         
+        document.getElementById("continut").innerHTML = "<h2>Persoane</h2>"
+        let divElem = document.createElement("div")
+        divElem.classList.add("mainPersoane")
+
         var table = document.createElement("table");
         table.setAttribute("class","invatTable");
 
@@ -39,7 +43,9 @@ function incarcaPersoane(){
             table.appendChild(row);
         });
         
-        document.getElementById("continut").innerHTML = table.outerHTML;
+        divElem.appendChild(table)
+
+        document.getElementById("continut").innerHTML += divElem.outerHTML;
     }
     xhttp.open("GET", "resurse/persoane.xml", true);
     xhttp.send();

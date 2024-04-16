@@ -14,7 +14,7 @@
         </adresa>
         <email>ion-popescu@gmail.com</email>
         <telefon-mobil>0712345678</telefon-mobil>
-        <ocupatia>Bucatar</ocupatia>
+        <ocupatia>Fotbalist</ocupatia>
     </persoana>
     <persoana id="2">
         <nume>Ionescu</nume>
@@ -29,7 +29,7 @@
         </adresa>
         <email>andrei-ionescu@gmail.com</email>
         <telefon-mobil>0712354768</telefon-mobil>
-        <ocupatia>Taximetrist</ocupatia>
+        <ocupatia>Manager</ocupatia>
     </persoana>
     <persoana id="3">
         <nume>Popa</nume>
@@ -44,6 +44,6 @@
         </adresa>
         <email>ionel-popa@gmail.com</email>
         <telefon-mobil>0732154786</telefon-mobil>
-        <ocupatia>Livrator</ocupatia>
+        <ocupatia>Fotbalist</ocupatia>
     </persoana>
 </persoane>
