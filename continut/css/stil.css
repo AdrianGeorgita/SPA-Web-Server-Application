@@ -231,7 +231,7 @@ footer>p{
     margin-left: 10px;
 }
 
-main>p:first-of-type::first-letter{
+.mainContainer>p:first-of-type::first-letter{
     font-size: xx-large;
 }
 
